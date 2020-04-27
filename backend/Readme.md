@@ -1,1 +1,1 @@
-npx sequelize-cli model:generate --name house --attributes name:string
+npx sequelize-cli model:generate --name user --attributes name:string
