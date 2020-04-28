@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import master from "../_reducers/master";
+import article from "../_reducers/article";
+import user from "../_reducers/user";
 
 import { logger, promise } from "./middleware";
 
@@ -7,7 +8,8 @@ const middleware = [logger, promise];
 
 // GLOBAL STATES
 const rootReducer = combineReducers({
-  master,
+  article,
+  user
 });
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));

@@ -1,4 +1,4 @@
-import { GET_USERS } from "../_constants/action";
+import { GET_USER } from "../_constants/action";
 
 const initialState = {
   data: [],
@@ -8,18 +8,18 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case `${GET_USERS}_PENDING`:
+    case `${GET_USER}_PENDING`:
       return {
         ...state,
         loading: true
       };
-    case `${GET_USERS}_FULFILLED`:
+    case `${GET_USER}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
         loading: false
       };
-    case `${GET_USERS}_REJECTED`:
+    case `${GET_USER}_REJECTED`:
       return {
         ...state,
         loading: false,

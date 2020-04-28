@@ -1,0 +1,61 @@
+.hallo-corona--1 .welcome {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  background: url(https://designrevision.com/demo/shards/extra/images/common/card-3.jpg) no-repeat center
+    center fixed;
+  background-size: cover;
+}
+.hallo-corona--1 .welcome:before {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.8;
+  background: #007bff;
+}
+@media (max-width: 767.98px) {
+  .hallo-corona--1 .welcome .inner-wrapper {
+    text-align: center;
+  }
+}
+@media (max-width: 400px) {
+  .hallo-corona--1 .welcome .welcome-heading {
+    font-size: 2.415rem;
+  }
+}
+.hallo-corona--1 .section-title {
+  position: relative;
+}
+.hallo-corona--1 .section-title:after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: #007bff;
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  bottom: -20px;
+}
+.hallo-corona--1 .feature .icon {
+  border-radius: 50%;
+  min-width: 65px;
+  height: 65px;
+  line-height: 65px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(33, 37, 41, 0.1), 0 7px 14px rgba(33, 37, 41, 0.1);
+  font-size: 27px;
+}
+.hallo-corona--1 .section {
+  border-bottom: 1px solid #eaebed;
+}
+.hallo-corona--1 .section-invert {
+  background: #f9fafc;
+}
+.hallo-corona--1 .testimonials .avatar {
+  max-width: 80px;
+  overflow: hidden;
+}

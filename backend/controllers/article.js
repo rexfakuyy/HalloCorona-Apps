@@ -14,3 +14,17 @@ exports.create = async (req, res) => {
     res.status(201).send({ data: get });
   }
 };
+
+exports.index = async (req, res) => {
+  const get = await article.findAll({
+    order: [["createdAt", "DESC"]]
+  });
+  res.status(201).send({ data: get });
+};
+
+exports.getbyId = async (req, res) => {
+  const get = await article.findOne({
+    where: { id: req.params.id }
+  });
+  res.status(201).send({ data: get });
+};

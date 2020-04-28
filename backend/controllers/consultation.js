@@ -1,4 +1,4 @@
-const { consultation } = require("../models");
+const { consultation, user } = require("../models");
 
 exports.consul = async (req, res) => {
   try {
@@ -34,6 +34,20 @@ exports.getconsul = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
+  try {
+    const consul = await consultation.findAll({
+      where: { userId: req.user }
+    });
+    res.status(200).send({ data: consul });
+  } catch (error) {
+    res.status(500).send({ message: "Unknown Request" });
+    console.log(error);
+  }
+};
+
+exports.reply = async (req, res) => {
+  const id = req.params.id;
+
   try {
     const consul = await consultation.findAll({
       where: { userId: req.user }

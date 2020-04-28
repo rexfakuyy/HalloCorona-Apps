@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       liveConsul: DataTypes.STRING,
       description: DataTypes.STRING,
       status: DataTypes.STRING,
-      userId: DataTypes.INTEGER
+      userId: DataTypes.INTEGER,
+      dokterId: DataTypes.INTEGER
     },
     {}
   );

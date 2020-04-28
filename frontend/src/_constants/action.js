@@ -1,2 +1,4 @@
 // GET USER
-export const GET_USERS = "GET_USERS";
+export const GET_ARTICLES = "GET_ARTICLES";
+export const GET_ARTICLE = "GET_ARTICLE";
+export const GET_USER = "GET_USER";
