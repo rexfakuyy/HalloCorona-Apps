@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
-import SignIn from "./modals/signIn";
-import SignUp from "./modals/signUp";
+import SignIn from "./modals/SignIn";
+import SignUp from "./modals/SignUp";
 import DropdownUser from "./dropdown/dropdownPatient";
 import DropdownOwner from "./dropdown/dropdownDokter";
 import logo from "../assets/img/logo.svg";
