@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { user } = require("../models");
 
-exports.authenticated = async (req, res, next) => {
+exports.auth = async (req, res, next) => {
   try {
     let token = req.header("Authorization");
     if (token) {
@@ -10,7 +10,6 @@ exports.authenticated = async (req, res, next) => {
 
       if (data) {
         const users = await user.findOne({ where: { id: data.id } });
-
         if (!users) {
           res.status(403).send({ message: "Forbidden request!" });
         } else {
