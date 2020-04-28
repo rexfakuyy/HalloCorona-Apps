@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import search from "../assets/img/search.svg";
 import Navbar from "../components/Navbar";
 
+import Detail from "../components/modals/ModalReservation";
+
 import { connect } from "react-redux";
-import { getConsultation } from "../_actions/consultation";
+import { getConsultation, getConsultationId } from "../_actions/consultation";
 
 class Home extends Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class Home extends Component {
   }
 
   toggle = e => {
-    this.props.getConsultation(e.target.id);
+    this.props.getConsultationId(e.target.id);
     this.setState({ open: true });
   };
 
@@ -49,14 +51,12 @@ class Home extends Component {
     return (
       <>
         <Navbar />
-        {/**
         <Detail
           data={consulData.id || " "}
           show={this.state.open}
           onHide={() => this.setState({ open: !this.state.open })}
         />
-         */}
-        <div className="container py-3" style={{marginTop: 100}}>
+        <div className="container py-3" style={{ marginTop: 100 }}>
           <table className="table table-sm">
             <thead>
               <tr>
@@ -78,7 +78,9 @@ class Home extends Component {
                     <td>{order.subject}</td>
                     <td>{order.liveConsul}</td>
                     <td>
-                      <div className={`badge badge-${this.badge(order.status)}`}>
+                      <div
+                        className={`badge badge-${this.badge(order.status)}`}
+                      >
                         {order.status}
                       </div>
                     </td>
@@ -109,6 +111,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    getConsultationId: id => dispatch(getConsultationId(id)),
     getConsultation: () => dispatch(getConsultation())
   };
 };

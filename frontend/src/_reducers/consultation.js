@@ -1,4 +1,8 @@
-import { POST_CONSULTATION, GET_CONSULTATION } from "../_constants/action";
+import {
+  POST_CONSULTATION,
+  GET_CONSULTATION,
+  GET_CONSULTATION_ID
+} from "../_constants/action";
 
 const initialState = {
   data: [],
@@ -11,12 +15,14 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case `${POST_CONSULTATION}_PENDING`:
     case `${GET_CONSULTATION}_PENDING`:
+    case `${GET_CONSULTATION_ID}_PENDING`:
       return {
         ...state,
         loading: true
       };
     case `${POST_CONSULTATION}_FULFILLED`:
     case `${GET_CONSULTATION}_FULFILLED`:
+    case `${GET_CONSULTATION_ID}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
@@ -25,6 +31,7 @@ const reducer = (state = initialState, action) => {
       };
     case `${POST_CONSULTATION}_REJECTED`:
     case `${GET_CONSULTATION}_REJECTED`:
+    case `${GET_CONSULTATION_ID}_REJECTED`:
       return {
         ...state,
         loading: false,

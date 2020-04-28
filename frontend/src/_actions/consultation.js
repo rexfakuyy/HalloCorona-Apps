@@ -1,4 +1,4 @@
-import { POST_CONSULTATION, GET_CONSULTATION } from "../_constants/action";
+import { POST_CONSULTATION, GET_CONSULTATION, GET_CONSULTATION_ID } from "../_constants/action";
 import { API, setAuthToken } from "../config/api";
 
 export const postConsultation = data => {
@@ -6,12 +6,12 @@ export const postConsultation = data => {
     type: POST_CONSULTATION,
     async payload() {
       try {
-        const user = await API.post(
+        const consul = await API.post(
           `/consultation`,
           data,
           setAuthToken(localStorage.getItem("token"))
         );
-        return user.data;
+        return consul.data;
       } catch (error) {
         console.log(error);
       }
@@ -24,11 +24,28 @@ export const getConsultation = () => {
     type: GET_CONSULTATION,
     async payload() {
       try {
-        const user = await API.get(
+        const consul = await API.get(
           `/consultation`,
           setAuthToken(localStorage.getItem("token"))
         );
-        return user.data;
+        return consul.data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+};
+
+export const getConsultationId = (id) => {
+  return {
+    type: GET_CONSULTATION_ID,
+    async payload() {
+      try {
+        const consul = await API.get(
+          `/consultation/${id}`,
+          setAuthToken(localStorage.getItem("token"))
+        );
+        return consul.data;
       } catch (error) {
         console.log(error);
       }
