@@ -12,7 +12,7 @@ class AddArticle extends Component {
     return (
       <>
         <Navbar />
-        <div className="container">
+        <div className="container" style={{marginTop: 100}}>
           <Form>
             <div className="form-group">
               <label htmlFor="title" className="form-control-label bold">

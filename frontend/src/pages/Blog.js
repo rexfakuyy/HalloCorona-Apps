@@ -23,7 +23,7 @@ class Blog extends Component {
     return (
       <>
         <Navbar />
-        <div className="container">
+        <div className="container" style={{marginTop: 70}}>
           <div>
             <h6>{article.title}</h6>
           </div>
