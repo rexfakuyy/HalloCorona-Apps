@@ -54,7 +54,7 @@ class Reservation extends React.Component {
   render() {
     const { data } = this.state;
 
-    const { data: consul, success, loading, error } = this.props.consul;
+    const { data: success, loading } = this.props.consul;
 
     if (loading) return <h1>Loading</h1>;
 

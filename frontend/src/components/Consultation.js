@@ -4,13 +4,11 @@ import { getConsultation } from "../_actions/consultation";
 
 class Consultation extends Component {
   componentDidMount() {
-    const { data: consul, success, loading, error } = this.props.consul;
-
     this.props.getConsultation();
   }
 
   render() {
-    const { data: consul, success, loading, error } = this.props.consul;
+    const { data: consul, loading, error } = this.props.consul;
 
     if (error) return <>error</>;
     if (loading) return <>Loading</>;
