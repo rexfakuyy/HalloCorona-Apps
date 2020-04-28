@@ -22,4 +22,7 @@ router.post("/consultation", auth, create);
 const { profile: get } = require("../controllers/profile");
 router.get("/profile/:id", auth, get);
 
+const { create: newArticle } = require("../controllers/article");
+router.post("/article", auth, newArticle);
+
 module.exports = router;
