@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Articles from "../components/Articles";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 class Home extends Component {
   render() {
     return (
       <>
         <Navbar />
+        <Header />
         <div className="container py-5">
           <div className="text-center mb-5">
             <h2>Artikel Hari Ini</h2>

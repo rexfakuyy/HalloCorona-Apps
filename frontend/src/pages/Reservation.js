@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
@@ -12,6 +11,20 @@ class AddProperty extends React.Component {
       loading: false
     };
   }
+
+  liveConsul = date => {
+    const { data } = this.state;
+    this.setState({
+      data: { ...data, liveConsul: date }
+    });
+  };
+
+  bornDate = date => {
+    const { data } = this.state;
+    this.setState({
+      data: { ...data, bornDate: date }
+    });
+  };
 
   handleSelect = e => {
     const { data } = this.state;
@@ -28,8 +41,10 @@ class AddProperty extends React.Component {
       data: { ...data, [e.target.name]: value }
     });
   };
+
   render() {
     const { data } = this.state;
+    console.log(data);
 
     return (
       <>
@@ -48,7 +63,7 @@ class AddProperty extends React.Component {
                         required
                         autoComplete="off"
                         onChange={this.handleChange}
-                        value={data.name || ""}
+                        value={data.fullName || ""}
                         name="fullName"
                         className="forms"
                         type="text"
@@ -56,18 +71,21 @@ class AddProperty extends React.Component {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="city" className="form-control-label bold">
+                      <label
+                        htmlFor="phone"
+                        className="form-control-label bold"
+                      >
                         Phone
                       </label>
                       <input
                         required
                         autoComplete="off"
                         onChange={this.handleChange}
-                        value={data.city || ""}
+                        value={data.phone || ""}
                         name="phone"
                         className="forms"
                         type="phone"
-                        id="city"
+                        id="phone"
                       />
                     </div>
 
@@ -78,50 +96,50 @@ class AddProperty extends React.Component {
                           <DatePicker
                             dateFormat="dd/MM/yyyy"
                             className="date-box w-100"
-                            selected={this.state.startDate}
-                            onChange={this.handleChange}
+                            selected={data.bornDate}
+                            onChange={this.bornDate}
                             minDate={new Date()}
-                            name="startDate"
+                            name="bornDate"
                           />
                         </div>
                       </div>
                       <div className="col-md-3">
                         <div className="form-group">
                           <label
-                            htmlFor="bedroom"
+                            htmlFor="age"
                             className="form-control-label bold"
                           >
-                            Bedroom
+                            Age
                           </label>
                           <input
                             required
                             autoComplete="off"
                             onChange={this.handleChange}
-                            value={data.bedroom || ""}
-                            name="bedroom"
+                            value={data.age || ""}
+                            name="age"
                             className="forms"
                             type="number"
-                            id="bedroom"
+                            id="age"
                           />
                         </div>
                       </div>
                       <div className="col-md-3">
                         <div className="form-group">
                           <label
-                            htmlFor="bathroom"
+                            htmlFor="height"
                             className="form-control-label bold"
                           >
-                            Bathroom
+                            Height
                           </label>
                           <input
                             required
                             autoComplete="off"
                             onChange={this.handleChange}
-                            value={data.bathroom || ""}
-                            name="bathroom"
+                            value={data.height || ""}
+                            name="height"
                             className="forms"
                             type="number"
-                            id="bathroom"
+                            id="height"
                           />
                         </div>
                       </div>
@@ -129,20 +147,20 @@ class AddProperty extends React.Component {
                       <div className="col-md-3">
                         <div className="form-group">
                           <label
-                            htmlFor="area"
+                            htmlFor="weight"
                             className="form-control-label bold"
                           >
-                            Area (Ft)
+                            Weight
                           </label>
                           <input
                             required
                             onChange={this.handleChange}
-                            value={data.area || ""}
-                            name="area"
+                            value={data.weight || ""}
+                            name="weight"
                             autoComplete="off"
                             className="forms"
                             type="number"
-                            id="area"
+                            id="weight"
                           />
                         </div>
                       </div>
@@ -150,55 +168,54 @@ class AddProperty extends React.Component {
 
                     <div className="form-group">
                       <label
-                        htmlFor="typeRent"
+                        htmlFor="gender"
                         className="form-control-label bold"
                       >
-                        Type of Rent
+                        Gender
                       </label>
                       <select
                         onChange={this.handleSelect}
                         defaultValue={"select"}
-                        name="typeRent"
-                        id="typeRent"
+                        name="gender"
+                        id="gender"
                         className="forms"
                       >
                         <option value="select" disabled>
                           Select Type
                         </option>
-                        <option value="day">Day</option>
-                        <option value="month">Month</option>
-                        <option value="year">Year</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                       </select>
                     </div>
 
                     <div className="form-group">
                       <label
-                        htmlFor="address"
+                        htmlFor="subject"
                         className="form-control-label bold"
                       >
-                        Address
+                        Subject
                       </label>
                       <input
                         required
                         autoComplete="off"
                         onChange={this.handleChange}
-                        value={data.address || ""}
-                        name="address"
+                        value={data.subject || ""}
+                        name="subject"
                         className="forms"
                         type="text"
-                        id="address"
+                        id="subject"
                       />
                     </div>
 
                     <div className="form-group">
-                      <label className="bold">Born Date</label>
+                      <label className="bold">Live Consultation Date</label>
                       <DatePicker
                         dateFormat="dd/MM/yyyy"
                         className="date-box w-100"
-                        selected={this.state.startDate}
-                        onChange={this.handleChange}
+                        selected={data.liveConsul}
+                        onChange={this.liveConsul}
                         minDate={new Date()}
-                        name="startDate"
+                        name="liveConsul"
                       />
                     </div>
 
@@ -221,11 +238,6 @@ class AddProperty extends React.Component {
                     </div>
 
                     <div className="mt-3 float-right d-flex">
-                      <Link to="/profile">
-                        <button type="button" className="btn btn-danger mr-3">
-                          Cancel
-                        </button>
-                      </Link>
                       <button
                         type="submit"
                         className="btn btn-primary"
@@ -234,7 +246,7 @@ class AddProperty extends React.Component {
                         {this.state.loading && (
                           <div className="btn-loader"></div>
                         )}
-                        {!this.state.loading && <span>Save</span>}
+                        {!this.state.loading && <span>Send</span>}
                       </button>
                     </div>
                   </form>

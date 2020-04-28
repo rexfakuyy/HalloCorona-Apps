@@ -1,28 +1,24 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 class Header extends Component {
   render() {
     return (
-      <div className="hallo-corona--1">
-        <div className="inner-wrapper mt-auto mb-auto container">
-          <div className="row">
-            <div className="col-md-7">
-              <h1 className="welcome-heading display-4 text-white">
-                Product Development
-              </h1>
-              <p className="text-white">
-                We can help you take your idea from concept to shipping using
-                the latest technologies and best practices available.
-              </p>
-              <a
-                href="#our-services"
-                className="btn btn-lg btn-outline-white btn-pill align-self-center"
-              >
-                Learn More
-              </a>
-            </div>
+      <div style={{ marginTop: 50 }}>
+        <Jumbotron>
+          <div className="container py-5">
+            <h2>Cegah Covid-19</h2>
+            <h3>dengan melakukan:</h3>
+            <p>
+              <Link to="/reservation">
+                <button className="btn btn-primary">
+                  Konsultasi Dengan Dokter
+                </button>
+              </Link>
+            </p>
           </div>
-        </div>
+        </Jumbotron>
       </div>
     );
   }
