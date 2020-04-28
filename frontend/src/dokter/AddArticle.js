@@ -47,7 +47,7 @@ class EditorConvertToHTML extends Component {
 
   render() {
     const { data, editorState } = this.state;
-    const { data: loading} = this.props.art;
+    const { data: art, loading, error, success } = this.props.art;
     return (
       <>
         <Navbar />

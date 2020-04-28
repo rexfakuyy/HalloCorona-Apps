@@ -54,10 +54,9 @@ class Reservation extends React.Component {
   render() {
     const { data } = this.state;
 
-    const { data: success, loading } = this.props.consul;
+    const { data: consul ,success, loading, error } = this.props.consul;
 
     if (loading) return <h1>Loading</h1>;
-
     if (success) return <Redirect to="/profile" />;
 
     return (
@@ -112,7 +111,6 @@ class Reservation extends React.Component {
                             className="date-box w-100"
                             selected={data.bornDate}
                             onChange={this.bornDate}
-                            minDate={new Date()}
                             name="bornDate"
                           />
                         </div>

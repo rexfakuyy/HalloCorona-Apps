@@ -24,10 +24,10 @@ class Articles extends Component {
             article.map((blog, i) => (
               <div key={i} className="col-lg-3 col-md-6">
                 <Link to={`/article/${blog.id}`}>
-                  <div className="card mb-4">
+                  <div className="card mb-4" style={{minHeight: 330}}>
                     <img
                       className="card-img-top"
-                      src="https://designrevision.com/demo/shards/extra/images/common/card-3.jpg"
+                      src="https://m.ayosemarang.com/images-semarang/post/articles/2020/04/28/56097/57330-virus-corona.jpg"
                       alt="..."
                     />
                     <div className="card-body p-3">
@@ -37,7 +37,7 @@ class Articles extends Component {
                       <div className="card-title ellipsis-desc">
                         {parse(blog.description)}
                       </div>
-                      <div className="d-flex">
+                      <div className="d-flex mt-3">
                         {blog.tags.map((tag, i) => (
                           <div
                             key={i}

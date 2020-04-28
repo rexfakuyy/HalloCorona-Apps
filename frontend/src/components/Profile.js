@@ -55,7 +55,13 @@ class Profile extends React.Component {
                 <img src={tenant} alt=".." />
               </div>
               <div>
-                <p className="bold mb-0">{profileData.role}</p>
+                <p className="bold mb-0">
+                  {profileData.role > 0 ? (
+                    <span>Dokter</span>
+                  ) : (
+                    <span>Patient</span>
+                  )}
+                </p>
                 <small>Status</small>
               </div>
             </div>

@@ -37,8 +37,8 @@ class Detail extends Component {
         {consulData && (
           <div className="pt-3 p-2 mb-3">
             <div className="px-3">
-              <div className="d-flex justify-content-between">
-                <div>
+              <div className="d-flex justify-content-between align-items-top">
+                <div className="pt-3">
                   <h4>{consulData.subject}</h4>
                   <p>{consulData.description}</p>
                 </div>
