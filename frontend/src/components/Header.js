@@ -17,7 +17,7 @@ class Header extends Component {
             <div>
               <div className="d-flex align-items-top">
                 <img src={covid} className="covid" alt="..." />
-                <div style={{ marginLeft: 50 }}>
+                <div style={{ marginLeft: 70 }}>
                   <h1 className="text-white">Cegah Covid-19</h1>
                   <h3 className="text-white">dengan melakukan:</h3>
                 </div>
