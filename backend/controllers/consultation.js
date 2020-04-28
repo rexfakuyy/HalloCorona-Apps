@@ -4,7 +4,7 @@ exports.consul = async (req, res) => {
   try {
     req.body.userId = req.user;
 
-    console.log(req.role)
+    console.log(req.role);
 
     if (req.role === 0) {
       const newConsul = await consultation.create(req.body);
@@ -15,6 +15,18 @@ exports.consul = async (req, res) => {
     } else {
       res.status(405).send({ message: "Failure" });
     }
+  } catch (error) {
+    res.status(500).send({ message: "Unknown Request" });
+    console.log(error);
+  }
+};
+
+exports.getconsul = async (req, res) => {
+  try {
+    const consul = await consultation.findAll({
+      where: { id: req.params.id }
+    });
+    res.status(200).send({ data: consul });
   } catch (error) {
     res.status(500).send({ message: "Unknown Request" });
     console.log(error);
