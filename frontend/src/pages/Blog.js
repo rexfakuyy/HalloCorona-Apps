@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import { getArticleId } from "../_actions/article";
+import parse from "html-react-parser";
 
 class Blog extends Component {
   componentDidMount() {
@@ -52,7 +53,7 @@ class Blog extends Component {
                 src="https://www.galamedianews.com/media/original/200319194115-psiko.png"
               />
             </div>
-            <div>{article.description}</div>
+            <div>{parse(`${article.description}`)}</div>
           </div>
         </div>
       </>

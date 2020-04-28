@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import parse from 'html-react-parser';
 
 import { connect } from "react-redux";
 import { getArticle } from "../_actions/article";
@@ -33,9 +34,9 @@ class Articles extends Component {
                       <h5 className="card-title ellipsis-title">
                         {blog.title}
                       </h5>
-                      <p className="card-text ellipsis-desc mb-3">
-                        {blog.description}
-                      </p>
+                      <div className="card-title ellipsis-desc">
+                        {parse(blog.description)}
+                      </div>
                       <div className="d-flex">
                         {blog.tags.map((tag, i) => (
                           <div
