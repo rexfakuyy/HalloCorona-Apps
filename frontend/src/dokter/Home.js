@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar";
 import Detail from "../components/modals/ModalReservation";
 
 import { connect } from "react-redux";
-import { getConsultation, getConsultationId } from "../_actions/consultation";
+import { getConsultation } from "../_actions/consultation";
+import { getConsultationId } from "../_actions/consultationId";
 
 class Home extends Component {
   constructor(props) {
@@ -111,8 +112,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getConsultationId: id => dispatch(getConsultationId(id)),
-    getConsultation: () => dispatch(getConsultation())
+    getConsultation: () => dispatch(getConsultation()),
+    getConsultationId: id => dispatch(getConsultationId(id))
   };
 };
 

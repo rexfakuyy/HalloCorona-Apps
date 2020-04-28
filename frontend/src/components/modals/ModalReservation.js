@@ -3,6 +3,17 @@ import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 
 class Detail extends Component {
+
+  state = {
+    data: {}
+  }
+
+  handleChange = e => {
+    const { data } = this.state
+    const value = e.target.value;
+    this.setState({ ...data, reply: value });
+  };
+
   render() {
     const { data: consulData, loading, error } = this.props.consul;
 
@@ -62,8 +73,8 @@ class Detail extends Component {
                 <textarea
                   required
                   autoComplete="off"
+                  value={this.state.data.reply}
                   onChange={this.handleChange}
-                  value=""
                   name="description"
                   id="description"
                   className="textareas"
@@ -95,7 +106,7 @@ class Detail extends Component {
 
 const mapStateToProps = state => {
   return {
-    consul: state.consultation
+    consul: state.consultationId
   };
 };
 

@@ -1,40 +1,35 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
-import Navbar from "../components/Navbar";
+import { EditorState, convertToRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import draftToHtml from "draftjs-to-html";
 
-class AddArticle extends Component {
+export default class EditorConvertToHTML extends Component {
   state = {
-    data: {}
+    editorState: EditorState.createEmpty()
+  };
+
+  onEditorStateChange = (editorState) => {
+    this.setState({
+      editorState
+    });
   };
 
   render() {
-    const { data } = this.state;
+    const { editorState } = this.state;
     return (
-      <>
-        <Navbar />
-        <div className="container" style={{marginTop: 100}}>
-          <Form>
-            <div className="form-group">
-              <label htmlFor="title" className="form-control-label bold">
-                Title
-              </label>
-              <input
-                required
-                onChange={this.handleChange}
-                value={data.title || ""}
-                name="weight"
-                autoComplete="off"
-                className="forms"
-                type="text"
-                id="title"
-              />
-            </div>
-            <button>Upload Image</button>
-          </Form>
-        </div>
-      </>
+      <div>
+        <Editor
+          editorState={editorState}
+          wrapperClassName="demo-wrapper"
+          editorClassName="demo-editor"
+          onEditorStateChange={this.onEditorStateChange}
+        />
+        <textarea
+          disabled
+          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+        />
+      </div>
     );
   }
 }
-
-export default  AddArticle;
