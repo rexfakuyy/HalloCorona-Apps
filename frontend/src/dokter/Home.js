@@ -23,7 +23,7 @@ class Home extends Component {
   }
 
   badge = id => {
-    if (id === 0) {
+    if (id === "Waiting Approve Consultation Live") {
       return "danger";
     }
     if (id === 1) {
@@ -78,7 +78,7 @@ class Home extends Component {
                     <td>{order.subject}</td>
                     <td>{order.liveConsul}</td>
                     <td>
-                      <div className={`badge badge-${this.badge(order.paid)}`}>
+                      <div className={`badge badge-${this.badge(order.status)}`}>
                         {order.status}
                       </div>
                     </td>

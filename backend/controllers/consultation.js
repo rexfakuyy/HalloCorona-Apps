@@ -35,9 +35,7 @@ exports.getconsul = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   try {
-    const consul = await consultation.findAll({
-      where: { userId: req.user }
-    });
+    const consul = await consultation.findAll();
     res.status(200).send({ data: consul });
   } catch (error) {
     res.status(500).send({ message: "Unknown Request" });
