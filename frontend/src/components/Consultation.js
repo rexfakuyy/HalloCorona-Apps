@@ -18,7 +18,7 @@ class Consultation extends Component {
         {consul &&
           consul.length > 0 &&
           consul.map((index, i) => (
-            <div className="card p-3">
+            <div className="card p-3 mb-3">
               <div className="d-flex align-items-top mb-3">
                 <div className="mr-3">
                   <img

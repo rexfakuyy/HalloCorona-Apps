@@ -3,13 +3,12 @@ import { Modal, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 
 class Detail extends Component {
-
   state = {
     data: {}
-  }
+  };
 
   handleChange = e => {
-    const { data } = this.state
+    const { data } = this.state;
     const value = e.target.value;
     this.setState({ ...data, reply: value });
   };
@@ -38,6 +37,35 @@ class Detail extends Component {
         {consulData && (
           <div className="pt-3 p-2 mb-3">
             <div className="px-3">
+              <div className="d-flex justify-content-between">
+                <div>
+                  <h4>{consulData.subject}</h4>
+                  <p>{consulData.description}</p>
+                </div>
+                <div>
+                  <div className="p-3 timeline-wrapper">
+                    <ul className="StepProgress">
+                      <li className="StepProgress-item is-done">
+                        <div className="d-flex">
+                          <div className="mr-4">
+                            <div className="bold">Date of Complaint</div>
+                            <div>{consulData.createdAt}</div>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="StepProgress-item is-done">
+                        <div className="d-flex">
+                          <div className="mr-4">
+                            <div className="bold">LIVE Consultation</div>
+                            <div>{consulData.liveConsul}</div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
               <table className="table table-striped table-bordered table-sm">
                 <thead>
                   <tr>
@@ -48,7 +76,6 @@ class Detail extends Component {
                     <th>age</th>
                     <th>height</th>
                     <th>weight</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
