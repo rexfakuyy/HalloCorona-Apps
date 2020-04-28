@@ -35,8 +35,15 @@ exports.getconsul = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   try {
-    const consul = await consultation.findAll();
-    res.status(200).send({ data: consul });
+    if (req.role === 0) {
+      const consul = await consultation.findAll({
+        where: { userId: req.user }
+      });
+      res.status(200).send({ data: consul });
+    } else {
+      const consul = await consultation.findAll();
+      res.status(200).send({ data: consul });
+    }
   } catch (error) {
     res.status(500).send({ message: "Unknown Request" });
     console.log(error);

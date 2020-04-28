@@ -16,7 +16,7 @@ class Articles extends Component {
     if (loading) return <p>s</p>;
 
     return (
-      <div className="container">
+      <div className="container margin-top pb-5">
         <div className="row">
           {article &&
             article.length > 0 &&
@@ -30,8 +30,12 @@ class Articles extends Component {
                       alt="..."
                     />
                     <div className="card-body p-3">
-                      <h5 className="card-title">{blog.title}</h5>
-                      <p className="card-text">{blog.description}</p>
+                      <h5 className="card-title ellipsis-title">
+                        {blog.title}
+                      </h5>
+                      <p className="card-text ellipsis-desc mb-3">
+                        {blog.description}
+                      </p>
                       <div className="d-flex">
                         {blog.tags.map((tag, i) => (
                           <div

@@ -9,7 +9,7 @@ class Home extends Component {
       <>
         <Navbar />
         <Header />
-        <div className="container py-5">
+        <div className="container margin-top pb-5 mainhead">
           <div className="text-center mb-5">
             <h2>Artikel Hari Ini</h2>
           </div>

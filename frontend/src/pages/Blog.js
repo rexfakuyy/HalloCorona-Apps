@@ -23,9 +23,36 @@ class Blog extends Component {
     return (
       <>
         <Navbar />
-        <div className="container" style={{marginTop: 70}}>
-          <div>
-            <h6>{article.title}</h6>
+        <div className="container margin-top pb-5" style={{ marginTop: 70 }}>
+          <div className="py-3">
+            <h3>{article.title}</h3>
+            <small>{article.createdAt}</small>
+            <div className="mb-3">
+              <small>
+                <b>Author: </b>
+                {article.user && article.user.fullname}
+              </small>
+            </div>
+            <div className="d-flex mb-3">
+              {article &&
+                article.tags &&
+                article.tags.map((tag, i) => (
+                  <div
+                    key={i}
+                    className="badge badge-outline-danger badge-pill mr-2"
+                  >
+                    {tag}
+                  </div>
+                ))}
+            </div>
+            <div className="text-center mb-4">
+              <img
+                className="img-fluid"
+                alt=".."
+                src="https://www.galamedianews.com/media/original/200319194115-psiko.png"
+              />
+            </div>
+            <div>{article.description}</div>
           </div>
         </div>
       </>

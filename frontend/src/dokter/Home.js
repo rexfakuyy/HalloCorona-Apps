@@ -57,7 +57,7 @@ class Home extends Component {
           show={this.state.open}
           onHide={() => this.setState({ open: !this.state.open })}
         />
-        <div className="container py-3" style={{ marginTop: 100 }}>
+        <div className="container margin-top pb-5" style={{ marginTop: 100 }}>
           <table className="table table-sm">
             <thead>
               <tr>

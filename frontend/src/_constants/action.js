@@ -1,6 +1,7 @@
 // GET USER
 export const GET_ARTICLES = "GET_ARTICLES";
 export const GET_ARTICLE = "GET_ARTICLE";
+export const POST_ARTICLE = "POST_ARTICLE";
 export const GET_USER = "GET_USER";
 
 //CONSULTATION

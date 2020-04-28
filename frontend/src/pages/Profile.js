@@ -8,7 +8,7 @@ class Profil extends React.Component {
     return (
       <>
         <Navbar />
-        <div className="container py-2">
+        <div className="container margin-top pb-5">
           <nav aria-label="breadcrumb" role="navigation">
             <ol className="breadcrumb bg-white pl-0">
               <li className="breadcrumb-item active" aria-current="page">

@@ -63,7 +63,7 @@ class Reservation extends React.Component {
     return (
       <>
         <Navbar />
-        <div className="container" style={{ marginTop: 100 }}>
+        <div className="container margin-top pb-5" style={{ marginTop: 100 }}>
           <div className="row">
             <div className="col">
               <div className="card">

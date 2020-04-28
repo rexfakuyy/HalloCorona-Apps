@@ -8,7 +8,7 @@ exports.create = async (req, res) => {
       where: { id: newArticle.id },
       include: {
         model: user,
-        attributs: ["fullname"]
+        attributes: ["fullname"]
       }
     });
     res.status(201).send({ data: get });
@@ -24,7 +24,11 @@ exports.index = async (req, res) => {
 
 exports.getbyId = async (req, res) => {
   const get = await article.findOne({
-    where: { id: req.params.id }
+    where: { id: req.params.id },
+    include: {
+      model: user,
+      attributes: ["fullname"]
+    }
   });
   res.status(201).send({ data: get });
 };

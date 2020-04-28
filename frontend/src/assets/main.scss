@@ -20,7 +20,7 @@ h4,
 h5,
 h6 {
   color: #333333;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p,
@@ -136,7 +136,7 @@ button:focus {
   color: white;
   font-weight: bold;
   border: 1px solid transparent;
-  background: #5a57ab;
+  background: #ff6185;
   border-radius: 5px;
 }
 
@@ -178,7 +178,7 @@ button:focus {
   color: white;
   font-weight: bold;
   border: 1px solid transparent;
-  background: #5a57ab;
+  background: #ff6185;
   border-radius: 5px;
 }
 
@@ -204,7 +204,7 @@ input {
 }
 
 .btn-rent.active {
-  background-color: #5a57ab !important;
+  background-color: #ff6185 !important;
   color: white !important;
 }
 
@@ -299,7 +299,7 @@ a:hover {
   color: white;
   font-weight: bold;
   border: 1px solid transparent;
-  background: #5a57ab;
+  background: #ff6185;
   border-radius: 5px;
 }
 
@@ -388,7 +388,6 @@ a:hover {
 
 .profile-img {
   height: 345px;
-
   background: url(https://img.inews.id/media/822/files/inews/5-LIFESTYLE/HEALTH/zan_malik1.jpg)
     center top no-repeat;
   background-blend-mode: normal;
@@ -406,32 +405,6 @@ a:hover {
 
 b {
   font-weight: 600;
-}
-
-.house-img {
-  max-height: 160px;
-  border-radius: 4px;
-}
-
-@media only screen and (min-width: 600px) {
-  .navbar-center {
-    width: 100%;
-    text-align: center;
-  }
-
-  .margin-top {
-    padding-top: 65px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .house-img {
-    max-height: 230px;
-  }
-
-  .margin-top {
-    padding-top: 65px;
-  }
 }
 
 .btn-loader {
@@ -458,10 +431,55 @@ b {
   font-weight: bold;
 }
 
-
 .modal-sign {
   ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
   }
+}
+
+.margin-top {
+  margin-top: 70px;
+}
+
+.card {
+  border-radius: 6px;
+  box-shadow: 0 0 3px 0 rgba(1, 0, 0, 0.479);
+  border: none;
+  .card-img-top {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
+}
+
+.ellipsis-title {
+  display: block;
+  display: -webkit-box;
+  max-width: 400px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ellipsis-desc {
+  display: block;
+  display: -webkit-box;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mainhead {
+  h2 {
+    color: #ff6185;
+  }
+}
+
+.jumbotron {
+  background-color: #ff6185;
 }
