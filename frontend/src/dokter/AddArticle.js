@@ -9,7 +9,7 @@ export default class EditorConvertToHTML extends Component {
     editorState: EditorState.createEmpty()
   };
 
-  onEditorStateChange = (editorState) => {
+  onEditorStateChange = editorState => {
     this.setState({
       editorState
     });
@@ -18,17 +18,18 @@ export default class EditorConvertToHTML extends Component {
   render() {
     const { editorState } = this.state;
     return (
-      <div>
-        <Editor
-          editorState={editorState}
-          wrapperClassName="demo-wrapper"
-          editorClassName="demo-editor"
-          onEditorStateChange={this.onEditorStateChange}
-        />
-        <textarea
-          disabled
-          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-        />
+      <div className="container">
+        <div className="card">
+          <Editor
+            editorState={editorState}
+            wrapperClassName="demo-wrapper"
+            editorClassName="demo-editor"
+            onEditorStateChange={this.onEditorStateChange}
+          />
+          <textarea
+            value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+          />
+        </div>
       </div>
     );
   }
