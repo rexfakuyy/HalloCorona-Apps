@@ -3,7 +3,12 @@ import Navbar from "../components/Navbar";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 
-class AddProperty extends React.Component {
+import { Redirect } from "react-router-dom";
+
+import { connect } from "react-redux";
+import { postConsultation } from "../_actions/consultation";
+
+class Reservation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,9 +47,18 @@ class AddProperty extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    this.props.postConsultation(this.state.data);
+  };
+
   render() {
     const { data } = this.state;
-    console.log(data);
+
+    const { data: consul, success, loading, error } = this.props.consul;
+
+    if (loading) return <h1>Loading</h1>;
+
+    if (success) return <Redirect to="/profile" />;
 
     return (
       <>
@@ -241,12 +255,10 @@ class AddProperty extends React.Component {
                       <button
                         type="submit"
                         className="btn btn-primary"
-                        disabled={this.state.loading}
+                        disabled={loading}
                       >
-                        {this.state.loading && (
-                          <div className="btn-loader"></div>
-                        )}
-                        {!this.state.loading && <span>Send</span>}
+                        {loading && <div className="btn-loader"></div>}
+                        {!loading && <span>Send</span>}
                       </button>
                     </div>
                   </form>
@@ -260,4 +272,14 @@ class AddProperty extends React.Component {
   }
 }
 
-export default AddProperty;
+const mapStateToProps = state => {
+  return { consul: state.consultation };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    postConsultation: data => dispatch(postConsultation(data))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reservation);

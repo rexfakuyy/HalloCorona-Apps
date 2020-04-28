@@ -41,7 +41,7 @@ export default class Owner extends Component {
               <img className="dropdown-icon" src={profile} alt=".." />
               Profile
             </Link>
-            <Link to="/profile/add" className="dropdown-item">
+            <Link to="/add" className="dropdown-item">
               <img className="dropdown-icon" src={article} alt=".." />
               Add Article
             </Link>

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 import SignIn from "./modals/SignIn";
 import SignUp from "./modals/SignUp";
-import DropdownUser from "./dropdown/dropdownPatient";
-import DropdownOwner from "./dropdown/dropdownDokter";
+import DropdownPatient from "./dropdown/dropdownPatient";
+import DropdownDokter from "./dropdown/dropdownDokter";
 import logo from "../assets/img/logo.svg";
 
 export default class Header extends Component {
@@ -62,10 +62,10 @@ export default class Header extends Component {
           </Link>
 
           {auth ? (
-            stats === "owner" ? (
-              <DropdownOwner />
+            stats === "1" ? (
+              <DropdownDokter />
             ) : (
-              <DropdownUser />
+              <DropdownPatient />
             )
           ) : (
             <>

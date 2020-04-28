@@ -457,3 +457,11 @@ b {
 .btn {
   font-weight: bold;
 }
+
+
+.modal-sign {
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+}
