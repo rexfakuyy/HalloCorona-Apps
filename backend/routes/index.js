@@ -11,10 +11,13 @@ router.post("/signup", signup);
 
 const {
   consul: create,
-  getconsul: getconsul
+  getconsul: getconsul,
+  getAll: getAll
 } = require("../controllers/consultation");
-router.post("/consultation", auth, create);
+
+router.get("/consultation", auth, getAll);
 router.get("/consultation/:id", auth, getconsul);
+router.post("/consultation", auth, create);
 
 const { profile: get } = require("../controllers/profile");
 router.get("/profile/:id", auth, get);

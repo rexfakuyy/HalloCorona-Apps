@@ -23,8 +23,20 @@ exports.consul = async (req, res) => {
 
 exports.getconsul = async (req, res) => {
   try {
-    const consul = await consultation.findAll({
+    const consul = await consultation.findOne({
       where: { id: req.params.id }
+    });
+    res.status(200).send({ data: consul });
+  } catch (error) {
+    res.status(500).send({ message: "Unknown Request" });
+    console.log(error);
+  }
+};
+
+exports.getAll = async (req, res) => {
+  try {
+    const consul = await consultation.findAll({
+      where: { userId: req.user }
     });
     res.status(200).send({ data: consul });
   } catch (error) {
