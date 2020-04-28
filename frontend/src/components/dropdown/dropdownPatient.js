@@ -40,7 +40,7 @@ export default class User extends Component {
               <img className="dropdown-icon" src={profile} alt=".." />
               Profile
             </Link>
-            <Link to="/history" className="dropdown-item">
+            <Link to="/profile/consultation" className="dropdown-item">
               <img className="dropdown-icon" src={consul} alt=".." />
               Consultation
             </Link>
