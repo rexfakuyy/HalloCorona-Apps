@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "https://housyapi.herokuapp.com/api/v1",
+  baseURL: "https://api.recky.instructype.com/api/v1",
 });
 
 export const setAuthToken = (token) => {
