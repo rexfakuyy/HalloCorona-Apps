@@ -5,23 +5,17 @@ pipeline {
     
   stages {
         
-    stage('Git') {
-      steps {
-        git 'https://github.com/rexfakuyy/HalloCorona-Apps.git'
-      }
-    }
      
     stage('Build') {
       steps {
-        sh 'npm install'
-         sh '<<Build Command>>'
+        echo 'Hello Corona Apps'
       }
     }  
     
             
     stage('Test') {
       steps {
-        sh 'node test'
+        echo 'Hello Corona Apps'
       }
     }
   }
