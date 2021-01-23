@@ -7,14 +7,14 @@ pipeline {
         
     stage('Git') {
       steps {
-        git 'git@github.com:rexfakuyy/HalloCorona-Apps.git'
+        git 'https://github.com/rexfakuyy/HalloCorona-Apps.git'
       }
     }
      
     stage('Build') {
       steps {
         sh 'npm install'
-         sh 'npm start'
+         sh '<<Build Command>>'
       }
     }  
     
